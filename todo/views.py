@@ -3,6 +3,7 @@ from django.views import generic
 from .models import Todo
 from .serializers import ToDoSerializer
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 
 
 class IndexView(generic.ListView):
@@ -45,8 +46,11 @@ def update(request, todo_id):
 class ListTodo(generics.ListAPIView):
     queryset = Todo.objects.all()
     serializer_class = ToDoSerializer
+    search_fields = ['title']
+    ordering_fields = ['created_at']
 
 
 class Cred (generics.RetrieveUpdateDestroyAPIView):
     queryset = Todo.objects.all()
     serializer_class = ToDoSerializer
+    permission_classes = [IsAuthenticated]
