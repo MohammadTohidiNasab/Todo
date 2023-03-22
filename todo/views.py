@@ -41,8 +41,8 @@ def update(request, todo_id):
     return redirect('todos:index')
 
 
-#api
 
+#api
 class ListTodo(generics.ListAPIView):
     queryset = Todo.objects.all()
     serializer_class = ToDoSerializer
