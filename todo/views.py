@@ -39,17 +39,12 @@ def update(request, todo_id):
     todo.save()
     return redirect('todos:index')
 
+
 #api
-
-
 
 class ListTodo(generics.ListAPIView):
     queryset = Todo.objects.all()
     serializer_class = ToDoSerializer
-
-# # class CreateTodo(generics.CreateAPIView):
-# #     queryset = Todo.objects.all()
-# #     serializer_class = ToDoSerializer
 
 
 class Cred (generics.RetrieveUpdateDestroyAPIView):
