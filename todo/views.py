@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect
 from django.views import generic
 from .models import Todo
-from django.http import HttpResponseRedirect
+from .serializers import ToDoSerializer
+from rest_framework import generics
 
 
 class IndexView(generic.ListView):
@@ -40,3 +41,17 @@ def update(request, todo_id):
 
 #api
 
+
+
+class ListTodo(generics.ListAPIView):
+    queryset = Todo.objects.all()
+    serializer_class = ToDoSerializer
+
+# # class CreateTodo(generics.CreateAPIView):
+# #     queryset = Todo.objects.all()
+# #     serializer_class = ToDoSerializer
+
+
+class Cred (generics.RetrieveUpdateDestroyAPIView):
+    queryset = Todo.objects.all()
+    serializer_class = ToDoSerializer
