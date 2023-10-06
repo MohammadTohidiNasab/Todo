@@ -44,6 +44,10 @@ def update(request, todo_id):
 
 #api
 class ListTodo(generics.ListAPIView):
+    '''
+        a list of tasks 
+    '''
+    
     queryset = Todo.objects.all()
     serializer_class = ToDoSerializer
     search_fields = ['title']
