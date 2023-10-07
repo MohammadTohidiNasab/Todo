@@ -162,6 +162,14 @@ REST_FRAMEWORK = {
     
     
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    
+    
+        #render settings(apis display format)
+        'DEFAULT_RENDERER_CLASSES': [
+            
+        'rest_framework.renderers.JSONRenderer',
+        
+        ]
 
 }
 
