@@ -47,7 +47,6 @@ class ListTodo(generics.ListAPIView):
     '''
         a list of tasks 
     '''
-    
     queryset = Todo.objects.all()
     serializer_class = ToDoSerializer
     search_fields = ['title']
@@ -55,6 +54,9 @@ class ListTodo(generics.ListAPIView):
 
 
 class Cred (generics.RetrieveUpdateDestroyAPIView):
+    '''
+        cred (read create edite delete tasks)
+    '''
     queryset = Todo.objects.all()
     serializer_class = ToDoSerializer
     permission_classes = [IsAuthenticated]
