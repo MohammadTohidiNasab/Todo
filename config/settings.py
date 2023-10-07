@@ -32,6 +32,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    
+    #admin panel captcha
+    'multi_captcha_admin',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,8 +45,9 @@ INSTALLED_APPS = [
 
     'todo',
     'rest_framework',
+    #schema
     'drf_spectacular',
-]
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -166,4 +171,10 @@ SPECTACULAR_SETTINGS = {
     'DESCRIPTION': 'simple todo app using django',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
+}
+
+
+#captcah settings
+MULTI_CAPTCHA_ADMIN = {
+    'engine': 'simple-captcha',
 }
