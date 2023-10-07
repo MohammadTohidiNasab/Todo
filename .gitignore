@@ -4,3 +4,5 @@ config/__pycache__/
 blog/__pycache__
 config/__pycache__
 venv/
+.vscode/
+/.vscode
