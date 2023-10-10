@@ -31,11 +31,12 @@
 <br>
 
 ## :dart: About ##
-simple todo app with api You can add, remove, and complete your tasks## :sparkles: Features ##
+simple todo app with api You can add, remove, and complete your tasks
+## :sparkles: Features ##
 
 :heavy_check_mark: customize user, API for crud ,captcha for admin panel
-:heavy_check_mark: discount coupon, throttling for limination users req 
-:heavy_check_mark: Zarin Pal payment, tested by unit test  
+:heavy_check_mark: throttling for limination users req 
+:heavy_check_mark: schema api document, tested by unit test  
 
 ## :rocket: Technologies ##
 
@@ -43,13 +44,10 @@ The following tools were used in this project:
 
 - Python
 - Django
-- Zarinpal
 - html css
 - djangorestframework
 - docker
 - drf_yasg
-- sms otp sign up
-- jwt
 
 ## :white_check_mark: Requirements ##
 
