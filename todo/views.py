@@ -7,56 +7,57 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class IndexView(generic.ListView):
-    template_name = 'todos/index.html'
-    context_object_name = 'todo_list'
+    template_name = "todos/index.html"
+    context_object_name = "todo_list"
 
     def get_queryset(self):
         """Return all the latest todos."""
-        return Todo.objects.order_by('-created_at')
+        return Todo.objects.order_by("-created_at")
 
 
 def add(request):
-    title = request.POST['title']
+    title = request.POST["title"]
     Todo.objects.create(title=title)
 
-    return redirect('todos:index')
+    return redirect("todos:index")
 
 
 def delete(request, todo_id):
     todo = get_object_or_404(Todo, pk=todo_id)
     todo.delete()
 
-    return redirect('todos:index')
+    return redirect("todos:index")
 
 
 def update(request, todo_id):
     todo = get_object_or_404(Todo, pk=todo_id)
-    isCompleted = request.POST.get('isCompleted', False)
-    if isCompleted == 'on':
+    isCompleted = request.POST.get("isCompleted", False)
+    if isCompleted == "on":
         isCompleted = True
 
     todo.isCompleted = isCompleted
 
     todo.save()
-    return redirect('todos:index')
+    return redirect("todos:index")
 
 
-
-#api
+# api
 class ListTodo(generics.ListAPIView):
-    '''
-        a list of tasks 
-    '''
+    """
+    a list of tasks
+    """
+
     queryset = Todo.objects.all()
     serializer_class = ToDoSerializer
-    search_fields = ['title']
-    ordering_fields = ['created_at']
+    search_fields = ["title"]
+    ordering_fields = ["created_at"]
 
 
-class Cred (generics.RetrieveUpdateDestroyAPIView):
-    '''
-        cred (read create edite delete tasks)
-    '''
+class Cred(generics.RetrieveUpdateDestroyAPIView):
+    """
+    cred (read create edite delete tasks)
+    """
+
     queryset = Todo.objects.all()
     serializer_class = ToDoSerializer
     permission_classes = [IsAuthenticated]
