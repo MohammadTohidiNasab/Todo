@@ -5,7 +5,9 @@ from .serializers import ToDoSerializer
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 
-
+'''
+main page show all tasks
+'''
 class IndexView(generic.ListView):
     template_name = "todos/index.html"
     context_object_name = "todo_list"
